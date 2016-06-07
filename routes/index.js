@@ -1,10 +1,11 @@
 var samlCtrl = require('../controller')
+var config = require('../config')
 
 var routes = [
   {
     method: 'GET',
     path: '/',
-    handler: function (request, reply) { reply({ path: '/login || /logout || /assertionconsumer' }) },
+    handler: function (request, reply) { reply({ path: config.route.login + ' || ' + config.route.logout }) },
     config: {
       description: 'login',
       notes: 'login',

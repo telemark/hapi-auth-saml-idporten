@@ -3,6 +3,14 @@ var server = new Hapi.Server()
 var config = require('./config')
 var service = require('./index')
 
+const yarOptions = {
+  storeBlank: false,
+  cookieOptions: {
+    password: config.SAML_YAR_SECRET,
+    isSecure: false
+  }
+}
+
 // Create a server with a host and port
 server.connection({
   port: config.SERVER_PORT
@@ -15,6 +23,15 @@ server.app = {
   decryptionCert: decryptionCert,
   user: {}
 }
+
+server.register({
+  register: require('yar'),
+  options: yarOptions
+}, function (err) {
+  if (err) {
+    console.error('Failed to load a plugin:', err)
+  }
+})
 
 server.register({
   register: require('hapi-passport-saml'),

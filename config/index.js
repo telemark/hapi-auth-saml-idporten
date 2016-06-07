@@ -4,6 +4,7 @@ var fs = require('fs')
 
 var config = {
   SERVER_PORT: process.env.SERVER_PORT || 3000,
+  SAML_YAR_SECRET: 'The string he tied Has been unravelled by years and the dry weather of trunks',
   route: {
     login: '/login',
     loginResponse: '/loginResponse',
