@@ -1,0 +1,31 @@
+{
+  "name": "hapi-auth-saml-idporten",
+  "version": "1.0.0",
+  "description": "Hapi auth strategy patched to work with idporten",
+  "main": "server.js",
+  "engines": {
+    "node": ">=4.4.4"
+   },
+  "dependencies": {
+    "boom": "3.2.1",
+    "hapi": "13.4.1",
+    "hapi-passport-saml": "git+https://github.com/maccyber/hapi-passport-saml"
+  },
+ "devDependencies": {
+    "coveralls": "2.11.9",
+    "standard": "7.1.1",
+    "tap": "5.7.2"
+  },
+  "scripts": {
+    "test": "standard && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "start": "node standalone.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/telemark/hapi-auth-saml-idporten.git"
+  },
+  "author": "Jonas Enge <jonas.enge@gmail.com> (http://github.com/maccyber)",
+  "license": "MIT"
+}
