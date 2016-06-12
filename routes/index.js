@@ -1,4 +1,4 @@
-var samlCtrl = require('../controller')
+var samlCtrl = require('../handlers')
 var config = require('../config')
 
 var routes = [
@@ -14,7 +14,7 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/login',
+    path: config.route.login,
     handler: samlCtrl.login,
     config: {
       description: 'login',
@@ -44,7 +44,7 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/logout',
+    path: config.route.logout,
     handler: samlCtrl.logout,
     config: {
       description: 'logout',
