@@ -69,6 +69,7 @@ exports.logout = function (request, reply) {
     if (err !== null) {
       return reply('Something failed').code(500)
     }
+    request.yar.clear(profile)
     request.yar.reset()
     return reply.redirect(url)
   })
