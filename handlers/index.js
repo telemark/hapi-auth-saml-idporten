@@ -1,17 +1,6 @@
 var debug = require('debug')('saml:ctrl')
 
 /**
- * Endpoint to retrieve metadata
- * @function
- * @param {Object} request - A Hapi Request
- * @param {Object} reply - A Hapi Reply
- */
-exports.metadata = function (request, reply) {
-  var saml = request.server.plugins['hapi-passport-saml'].instance
-  return reply(saml.generateServiceProviderMetadata(request.server.app.decryptionCert).type('application/xml'))
-}
-
-/**
  * Login
  * @function
  * @param {Object} request - A Hapi Request
