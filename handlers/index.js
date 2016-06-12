@@ -26,7 +26,7 @@ exports.login = function (request, reply) {
     query: request.query
   }, function (err, loginUrl) {
     if (err !== null) {
-      return reply.code(500)
+      return reply('Something failed').code(500)
     }
     return reply.redirect(loginUrl)
   })
@@ -44,7 +44,7 @@ exports.assert = function (request, reply) {
   if (request.payload.SAMLRequest) {
   // Implement your SAMLRequest handling here
     debug(request.payload)
-    return reply(500)
+    return reply('Something failed').code(500)
   }
   if (request.payload.SAMLResponse) {
     // Handles SP use cases, e.g. IdP is external and SP is Hapi
@@ -52,17 +52,12 @@ exports.assert = function (request, reply) {
       debug(err)
       debug(profile)
       if (err !== null) {
-        return reply.code(500)
+        return reply('Something failed').code(500)
       }
 
-      // Save name_id and session_index for logout
-      // Note:  In practice these should be saved in the user session, not globally.
-      var name_id = profile.nameID
-      var session_index = profile.sessionIndex
+      // Save profile for logout in yar
+      request.yar.set('profile', profile)
 
-      request.server.app.name_id = name_id
-      request.server.app.session_index = session_index
-      request.server.app.user = profile
       return reply(profile)
     })
   }
@@ -76,14 +71,16 @@ exports.assert = function (request, reply) {
  */
 exports.logout = function (request, reply) {
   var saml = request.server.plugins['hapi-passport-saml'].instance
-  var options = {
-    name_id: request.server.app.name_id,
-    session_index: request.server.app.session_index
+
+  request.user = request.yar.get('profile')
+  if (!request.user) {
+    return reply('Not logged in').code(500)
   }
   saml.getLogoutUrl(request, function (err, url) {
     if (err !== null) {
-      return reply.code(500)
+      return reply('Something failed').code(500)
     }
+    request.yar.reset()
     return reply.redirect(url)
   })
 }

@@ -9,7 +9,7 @@
   "dependencies": {
     "boom": "3.2.1",
     "hapi": "13.4.1",
-    "hapi-passport-saml": "git+https://github.com/maccyber/hapi-passport-saml",
+    "hapi-passport-saml": "0.1.1",
     "yar": "7.0.2"
   },
  "devDependencies": {

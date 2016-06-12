@@ -5,7 +5,7 @@ var routes = [
   {
     method: 'GET',
     path: '/',
-    handler: function (request, reply) { reply({ path: config.route.login + ' || ' + config.route.logout }) },
+    handler: function (request, reply) { reply({ path: config.route }) },
     config: {
       description: 'login',
       notes: 'login',
