@@ -24,7 +24,7 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/logoutResponse',
+    path: config.route.logoutResponse,
     handler: function (request, reply) { reply('Logged out \o/') },
     config: {
       description: 'login',
@@ -34,7 +34,7 @@ var routes = [
   },
   {
     method: 'POST',
-    path: '/assertionconsumer',
+    path: config.route.loginResponse,
     handler: samlCtrl.assert,
     config: {
       description: 'assert',
