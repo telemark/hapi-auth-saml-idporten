@@ -1,4 +1,6 @@
 # hapi-auth-saml-idporten
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/hapi-auth-saml-idporten.svg)](https://greenkeeper.io/)
 hapi saml authorization through idporten or similar
 
 # Autoinstall
