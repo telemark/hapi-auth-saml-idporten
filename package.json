@@ -7,15 +7,15 @@
     "node": ">=4.4.4"
    },
   "dependencies": {
-    "boom": "3.2.1",
-    "hapi": "13.4.1",
+    "boom": "4.2.0",
+    "hapi": "16.1.0",
     "hapi-passport-saml": "0.1.1",
-    "yar": "7.0.2"
+    "yar": "8.1.2"
   },
  "devDependencies": {
-    "coveralls": "2.11.9",
-    "standard": "7.1.1",
-    "tap": "5.7.2"
+    "coveralls": "2.11.16",
+    "standard": "8.6.0",
+    "tap": "10.0.2"
   },
   "scripts": {
     "test": "standard && tap --reporter=spec test/*.js",
