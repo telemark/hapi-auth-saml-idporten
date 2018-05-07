@@ -13,7 +13,7 @@
     "yar": "7.0.2"
   },
  "devDependencies": {
-    "coveralls": "2.11.9",
+    "coveralls": "2.13.3",
     "standard": "7.1.1",
     "tap": "5.7.2"
   },
