@@ -15,7 +15,7 @@
  "devDependencies": {
     "coveralls": "2.11.9",
     "standard": "7.1.1",
-    "tap": "5.7.2"
+    "tap": "5.8.0"
   },
   "scripts": {
     "test": "standard && tap --reporter=spec test/*.js",
