@@ -9,7 +9,7 @@
   "dependencies": {
     "boom": "3.2.2",
     "hapi": "13.5.3",
-    "hapi-passport-saml": "0.3.0",
+    "hapi-passport-saml": "1.1.0",
     "yar": "7.0.2"
   },
  "devDependencies": {
